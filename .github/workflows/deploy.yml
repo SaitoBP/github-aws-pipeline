@@ -36,3 +36,13 @@ jobs:
           REMOTE_HOST: '44.203.55.154'
           REMOTE_USER: 'ubuntu'
           TARGET: 'public_html'
+          
+      - name: copy files
+        uses: nogsantos/scp-deploy@master
+        with:
+          src: ./dist/*
+          host: '44.203.55.154'
+          remote: 'public_html'
+          port: '22'
+          user: 'ubuntu'
+          key: ${{ secrets.AWS_KEY }}
