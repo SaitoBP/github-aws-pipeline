@@ -33,4 +33,6 @@ jobs:
         uses: easingthemes/ssh-deploy@main
         env:
           SSH_PRIVATE_KEY: ${{ secrets.AWS_KEY }}
+          REMOTE_HOST: '44.203.55.154'
+          REMOTE_USER: 'ubuntu'
           TARGET: 'public_html'
