@@ -21,6 +21,12 @@ jobs:
       - run: yarn install
       - run: yarn build
       
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v3.0.0
+        with:
+          name: build
+          path: ./dist
+      
   deploy:
     needs: [build]
     runs-on: ubuntu-latest
@@ -37,7 +43,11 @@ jobs:
           REMOTE_USER: 'ubuntu'
           TARGET: 'public_html'
           
-      - run: ls
+      - name: Download a Build Artifact
+        uses: actions/download-artifact@v3.0.0
+        with:
+          name: build
+          path: ./dist
           
       - name: copy files
         uses: nogsantos/scp-deploy@master
