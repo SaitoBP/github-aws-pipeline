@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - run: apt install openssh-client
+      - run: sudo apt install openssh-client
       - run: eval $(ssh-agent -s)
       - run: echo $AWS_KEY | tr-d '\r' | ssh-add -
       - run: mkdir -p ~/.ssh
