@@ -37,6 +37,8 @@ jobs:
           REMOTE_USER: 'ubuntu'
           TARGET: 'public_html'
           
+      - run: ls
+          
       - name: copy files
         uses: nogsantos/scp-deploy@master
         with:
