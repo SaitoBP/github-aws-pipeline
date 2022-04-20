@@ -29,7 +29,8 @@ jobs:
       AWS_KEY: ${{ secrets.AWS_KEY }}
     
     steps:
-      - name: easingthemes/ssh-deploy@main
+      - name: ssh-connection
+        uses: easingthemes/ssh-deploy@main
         env:
           SSH_PRIVATE_KEY: ${{ secrets.AWS_KEY }}
           TARGET: 'public_html'
