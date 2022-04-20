@@ -27,7 +27,7 @@ jobs:
     steps:
       - run: sudo apt install openssh-client
       - run: eval $(ssh-agent -s)
-      - run: echo ${{ secrets.AWS_KEY }} | tr -d '\r' | ssh-add -
+      - run: echo $'secrets.AWS_KEY' | tr -d '\r' | ssh-add -
       - run: mkdir -p ~/.ssh
       - run: chmod 700 ~/.ssh
       - run: ssh -o StrictHostKeyChecking=no ubuntu@44.203.55.154 "cd ~/public_html && rm -rf static/"
